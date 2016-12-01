@@ -14,31 +14,10 @@ public class Card {
     public String[] array;
     ArrayList<String> cards = new ArrayList<String>();
 
-    Card(String cardGiven){
-        this.cardGiven = cardGiven;
 
-//        for (String s : cards){
-//            s = cardGiven;
-//            char rank_index = s.charAt(0);
-//            char suit_index = s.charAt(1);
-//            getRank(rank_index);
-//            getSuit(suit_index);
-        }
-//        char rank_index = cardGiven.charAt(0);
-//        char suit_index = cardGiven.charAt(1);
-//        getRank(rank_index);
-//        getSuit(suit_index);
-//    }
+
     public Card(String[] array) {
         cards.addAll(Arrays.asList(array));
-
-//        for (String i: cards){
-//            char rank_index = i.charAt(0);
-//            char suit_index = i.charAt(1);
-//            getRank(rank_index);
-//            getSuit(suit_index);
-//            System.out.println(getR() + getS());
-//        }
     }
 
 
@@ -121,9 +100,27 @@ public class Card {
             char suit_index = i.charAt(1);
             getRank(rank_index);
             getSuit(suit_index);
-            System.out.println(i + " - " + getR() + " of " + getS());
+            System.out.println( "\t" + i + " - " + getR() + " of " + getS());
         }
+        System.out.println("\n");
     }
+    public void addCard(String newCard){
+    this.cards.add(newCard);
+        char rank_index = newCard.charAt(0);
+        char suit_index = newCard.charAt(1);
+        getRank(rank_index);
+        getSuit(suit_index);
+        System.out.println("Adding Card: " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + newCard + ")" + "\n");
+    }
+
+    public void removeCard(int card){
+
+        System.out.println(cards.indexOf(card));
+       // System.out.println("Removing Card: Index: " + card + ", " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + rank_index + suit_index + ")" + "\n");
+        //this.cards.remove(card);
+    }
+
+
 
 
     public String getCardGiven() {
@@ -143,6 +140,7 @@ public class Card {
     }
 
 
+
 }
 
 
@@ -155,4 +153,15 @@ public class Card {
 //            case
 //        }
 //        return null;
+//    }
+
+
+
+
+//    public void removeCard(int card){
+//        String removedCard = String.valueOf(cards.indexOf(card));
+//        char rank_index = removedCard.charAt(0);
+//        char suit_index = removedCard.charAt(1);
+//        System.out.println("Removing Card: Index: " + card + ", " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + rank_index + suit_index + ")" + "\n");
+//        this.cards.remove(card);
 //    }
