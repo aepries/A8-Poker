@@ -114,22 +114,25 @@ public class Card {
     }
 
     public void removeCard(int card){
-
-        System.out.println(cards.indexOf(card));
-       // System.out.println("Removing Card: Index: " + card + ", " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + rank_index + suit_index + ")" + "\n");
-        //this.cards.remove(card);
+        String x = cards.get(card);
+        char rank_index = x.charAt(0);
+        char suit_index = x.charAt(1);
+        getRank(rank_index);
+        getSuit(suit_index);
+        System.out.println("Removing Card: Index: " + card + ", " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + rank_index + suit_index + ")" + "\n");
+        this.cards.remove(card);
     }
 
-
-
-
-    public String getCardGiven() {
-        return cardGiven;
+    public void removeCard(String card){
+        this.cards.remove(card);
+        char rank_index = card.charAt(0);
+        char suit_index = card.charAt(1);
+        getRank(rank_index);
+        getSuit(suit_index);
+        System.out.println("Removing Card: " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + rank_index + suit_index + ")" + "\n");
+        this.cards.remove(card);
     }
 
-    public void setCardGiven(String cardGiven) {
-        this.cardGiven = cardGiven;
-    }
 
     public String getR() {
         return r;
