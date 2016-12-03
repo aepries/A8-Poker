@@ -10,9 +10,11 @@ public class Card {
     private String r;
     private String s;
     private String x;
+    boolean Ace = false;
 
     public String[] array;
     ArrayList<String> cards = new ArrayList<String>();
+    ArrayList<Integer> arrlist = new ArrayList<Integer>();
 
 
 
@@ -24,9 +26,6 @@ public class Card {
 
     public String getRank(char rank_index){
         switch(rank_index) {
-            case '1':
-                r = "Ace";
-                break;
             case '2':
                 r = "Two";
                 break;
@@ -102,8 +101,78 @@ public class Card {
             getSuit(suit_index);
             System.out.println( "\t" + i + " - " + getR() + " of " + getS());
         }
+        System.out.println("----------------------------------------");
+        hiCard();
+        twoPair();
         System.out.println("\n");
     }
+
+    public void twoPair(){
+        Collections.sort(cards);
+//        for (String i : cards){
+//            System.out.println(i);
+//        }
+        for (String i : cards){
+            
+        }
+        String first = cards.get(0);
+        String second = cards.get(1);
+        String third = cards.get(2);
+        String fourth = cards.get(3);
+        if (first.charAt(0) == second.charAt(0) && third.charAt(0) == fourth.charAt(0)){
+            System.out.println("Two Pairs: " + "(" + first + " & " + second + ")" + " and " + "(" + third + " & " + fourth + ")");
+        }
+
+        }
+
+
+
+
+//    public void twoPair(){
+//        Collections.sort(cards);
+//        for (String i : cards){
+//            System.out.println(i);
+//        }
+//        if (cards.)
+//
+//    }
+
+
+
+    public void hiCard(){
+        for (String i: cards) {
+            char rank_index = i.charAt(0);
+            char suit_index = i.charAt(1);
+            getRank(rank_index);
+            getSuit(suit_index);
+            if (rank_index == 'A') {
+                System.out.println("High Card: A" + suit_index + " (" + getRank(rank_index) + " of " + getSuit(suit_index) + ")");
+                Ace = true;
+            }
+
+            else {
+                int hi = Character.getNumericValue(i.charAt(0));
+                arrlist.add(hi);
+            }
+
+        }
+        if (Ace == false){
+            int highest = Collections.max(arrlist);
+            String theHighest = String.valueOf(highest);
+            for (String i: cards) {
+                if (i.contains(theHighest)){
+                    char rank_index = i.charAt(0);
+                    char suit_index = i.charAt(1);
+                    getRank(rank_index);
+                    getSuit(suit_index);
+                    System.out.println("High card: " + rank_index + suit_index + " (" + getRank(rank_index) + " of " + getSuit(suit_index) + ")");
+                }
+            }
+
+        }
+
+    }
+
     public void addCard(String newCard){
     this.cards.add(newCard);
         char rank_index = newCard.charAt(0);
@@ -145,26 +214,3 @@ public class Card {
 
 
 }
-
-
-
-
-
-//    public String getRank(char rank_index){
-//
-//        switch(rank_index) {
-//            case
-//        }
-//        return null;
-//    }
-
-
-
-
-//    public void removeCard(int card){
-//        String removedCard = String.valueOf(cards.indexOf(card));
-//        char rank_index = removedCard.charAt(0);
-//        char suit_index = removedCard.charAt(1);
-//        System.out.println("Removing Card: Index: " + card + ", " + getRank(rank_index) + " of " + getSuit(suit_index) + " (" + rank_index + suit_index + ")" + "\n");
-//        this.cards.remove(card);
-//    }
