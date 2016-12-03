@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="A8-Poker:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/A8_Poker_jar</output-path>
+    <root id="archive" name="A8-Poker.jar">
+      <element id="module-output" name="A8-Poker" />
+    </root>
+  </artifact>
+</component>
