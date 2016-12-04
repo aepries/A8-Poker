@@ -11,10 +11,14 @@ public class Card {
     private String s;
     private String x;
     boolean Ace = false;
+    String name;
+    String yo;
 
     public String[] array;
     ArrayList<String> cards = new ArrayList<String>();
     ArrayList<Integer> arrlist = new ArrayList<Integer>();
+    ArrayList<String> duplicates = new ArrayList<String>();
+    Set<String> v = new HashSet<>();
 
 
 
@@ -107,35 +111,45 @@ public class Card {
         System.out.println("\n");
     }
 
-    public void twoPair(){
-        Collections.sort(cards);
-//        for (String i : cards){
-//            System.out.println(i);
+    public String getName() {
+        for(String i : cards) {
+            char rank_index = i.charAt(0);
+            char suit_index = i.charAt(1);
+            name = String.valueOf(rank_index + suit_index);
+        }
+        return name;
+    }
+
+    public void twoPair() {
+        for(String t : cards) {
+            char rank_index = t.charAt(0);//no need to convert to string
+            for (String i : cards) {
+                if (i.charAt(0) == rank_index)
+                    System.out.println(i);
+            }
+        }
+    }
+
+//    public void twoPair() {
+//        for(String t : cards) {
+//            char rank_index = t.charAt(0);
+//            yo = String.valueOf(rank_index);
+//            //if (t.startsWith(yo)) System.out.println(t);
 //        }
-        for (String i : cards){
-            
-        }
-        String first = cards.get(0);
-        String second = cards.get(1);
-        String third = cards.get(2);
-        String fourth = cards.get(3);
-        if (first.charAt(0) == second.charAt(0) && third.charAt(0) == fourth.charAt(0)){
-            System.out.println("Two Pairs: " + "(" + first + " & " + second + ")" + " and " + "(" + third + " & " + fourth + ")");
-        }
-
-        }
-
-
-
-
-//    public void twoPair(){
-//        Collections.sort(cards);
-//        for (String i : cards){
-//            System.out.println(i);
+//        for (String i : cards) {
+//            if (i.startsWith(yo)) System.out.println(i);
 //        }
-//        if (cards.)
-//
 //    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -214,3 +228,51 @@ public class Card {
 
 
 }
+
+
+
+//    public void twoPair(){
+//        Collections.sort(cards);
+//        for (int i = 0; i < cards.size();){
+//            String first = cards.get(i);
+//            String second = cards.get(i + 1);
+//            if (first.charAt(0) == second.charAt(0)){
+//                duplicates.add(first);
+//                duplicates.add(second);
+//            }
+//            i++;
+//
+//        }
+//        System.out.println(duplicates);
+
+
+
+//    public void twoPair(){
+//        Collections.sort(cards);
+//        for (int t = 0; t< cards.size();){
+//            String first = cards.get(t);
+//            String second = cards.get(t + 1);
+//            if (first.charAt(0) == second.charAt(0)) {
+//                duplicates.add(first);
+//                duplicates.add(second);
+//                t++;
+//            }
+//        }
+//        System.out.println(duplicates);
+//
+//    }
+
+/////////KIND OF WORKD//////////////////
+//    public void twoPair(){
+//        for(String i: cards){
+//            char rank_index = i.charAt(0);
+//            char suit_index = i.charAt(1);
+//            String Ri = String.valueOf(rank_index);
+//            String Si = String.valueOf(suit_index);
+//            getRank(rank_index);
+//            getSuit(suit_index);
+//            if (v.add(Ri) ==false){
+//                System.out.println("Pairs: " + cards.contains(Ri));
+//            }
+//
+//        }
