@@ -121,10 +121,11 @@ public class Card {
     }
 
     public void twoPair() {
+        System.out.println("Pairs: ");
         for(String t : cards) {
             char rank_index = t.charAt(0);//no need to convert to string
             for (String i : cards) {
-                if (i.charAt(0) == rank_index)
+                if (!i.equals(t) && i.charAt(0) == rank_index)
                     System.out.println(i);
             }
         }
