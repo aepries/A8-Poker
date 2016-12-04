@@ -3,8 +3,9 @@ public class Main {
 
     public static void main(String args[]){
 
-        Card h = new Card(new String[] {"3c", "3s", "Ad", "6h", "7h", "As"});
-        h.PrintHand();
+        Card h = new Card(new String[] {"3c", "3s", "Ad", "6h", "7h", "7s"});
+        h.twoPair();
+        //h.PrintHand();
 //        h.addCard("8d");
 //        h.addCard("As");
         //h.hiCard();
